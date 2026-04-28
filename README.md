@@ -14,6 +14,7 @@ Python >= 3.9.25, Pytoch == 2.7.1, torchvision == 0.22.1
 ## Datasets
 CIFAR-10, CIFAR-100 can be automatically downloaded via `torchvision`.
 Here is the download address of the neuromorphic datasets [CIFAR10-DVS](https://figshare.com/articles/dataset/CIFAR10-DVS_New/4724671) and [DVS128Gesture](https://ibm.ent.box.com/s/3hiq58ww1pbbjrinh367ykfdf60xsfm8/folder/50167556794).
+
 ## Training
 
 ### CIFAR10
@@ -21,18 +22,31 @@ Here is the download address of the neuromorphic datasets [CIFAR10-DVS](https://
 To train the models on CIFAR10 , run the following command:
 
 ```train
-python NeuEvo_main_new.py --model NetworkCIFAR --dataset cifar10 --batch-size 128 --step 4 --layers 8 --arch cifar_new0
+CUDA_VISIBLE_DEVICES=0 python DNASNet_train.py --model NetworkCIFAR --dataset cifar10 --batch-size 128 --step 4 --layers 16 --node-type PLIFNode --init-channels 36 --arch cifar_final --lr 0.005 --epochs 600 --use-bilinear true
 ```
 ### DVS-CIFAR10
 To train the models on DVS-CIFAR10 , run the following command:
 
 ```train
-python NeuEvo_main_new.py --model NetworkCIFAR --dataset dvsc10 --batch-size 128 --step 4 --layers 8 --arch dvsc10_new1
+python DNASNet_train.py --model NetworkCIFAR --dataset dvsc10 --batch-size 64 --step 10 --layers 16 --arch dvsc10_base3 --node-type PLIFNode --init-channels 36 --lr 0.005 --epochs 600 --use-bilinear true
 ```
 ### DVS-Gesture
 To train the models on DVS-G , run the following command:
 
 ```train
-python NeuEvo_main_new.py --model NetworkCIFAR --dataset dvsg --batch-size 128 --step 4 --layers 8 --arch dvsg_new2
+python DNASNet_train.py --model NetworkCIFAR --dataset dvsg --batch-size 64 --step 10 --layers 16 --arch dvsg_new2 --node-type PLIFNode --init-channels 36 --lr 0.005 --epochs 600 --use-bilinear true
+```
+## Search
+### Search on CIFAR10
+To search the Cell on CIFAR10 , run the following command:
+
+```train
+CUDA_VISIBLE_DEVICES=0 python train_search.py --dataset cifar10 --epochs 50 --batch-size 128 --init-channels 16 --layers 6 --step 4 --stdp-type full --learning_rate 0.005
 ```
 
+### Search on DVS-CIFAR10
+To search the Cell on DVS-CIFAR10 , run the following command:
+
+```train
+CUDA_VISIBLE_DEVICES=0 python train_search.py --dataset dvsc10 --epochs 50 --batch-size 64 --init-channels 16 --layers 6 --step 10 --stdp-type full --learning_rate 0.005
+```
