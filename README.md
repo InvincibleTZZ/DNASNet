@@ -27,12 +27,14 @@ To train the models on CIFAR10 , run the following command:
 CUDA_VISIBLE_DEVICES=0 python DNASNet_train.py --model NetworkCIFAR --dataset cifar10 --batch-size 128 --step 4 --layers 16 --node-type PLIFNode --init-channels 36 --arch cifar_final --lr 0.005 --epochs 600 --use-bilinear true
 ```
 **DVS-CIFAR10**
+
 To train the models on DVS-CIFAR10 , run the following command:
 
 ```train
 python DNASNet_train.py --model NetworkCIFAR --dataset dvsc10 --batch-size 64 --step 10 --layers 16 --arch dvsc10_base3 --node-type PLIFNode --init-channels 36 --lr 0.005 --epochs 600 --use-bilinear true
 ```
 **DVS-Gesture**
+
 To train the models on DVS-G , run the following command:
 
 ```train
