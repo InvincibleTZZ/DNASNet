@@ -11,7 +11,9 @@ To install requirements:
 ```setup
 Python >= 3.9.25, Pytoch == 2.7.1, torchvision == 0.22.1
 ```
-
+## Datasets
+CIFAR-10, CIFAR-100 can be automatically downloaded via `torchvision`.
+Here is the download address of the neuromorphic datasets [CIFAR10-DVS](https://figshare.com/articles/dataset/CIFAR10-DVS_New/4724671) and [DVS128Gesture](https://ibm.ent.box.com/s/3hiq58ww1pbbjrinh367ykfdf60xsfm8/folder/50167556794).
 ## Training
 
 ### CIFAR10
