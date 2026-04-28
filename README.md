@@ -16,7 +16,8 @@ CIFAR-10, CIFAR-100 can be automatically downloaded via `torchvision`.
 Here is the download address of the neuromorphic datasets [CIFAR10-DVS](https://figshare.com/articles/dataset/CIFAR10-DVS_New/4724671) and [DVS128Gesture](https://ibm.ent.box.com/s/3hiq58ww1pbbjrinh367ykfdf60xsfm8/folder/50167556794).
 
 ## Training
-
+![](image/retrain_framework.png)
+The overall framework of the network during the retraining process is as shown in the figure.
 ### CIFAR10
 
 To train the models on CIFAR10 , run the following command:
@@ -37,6 +38,10 @@ To train the models on DVS-G , run the following command:
 python DNASNet_train.py --model NetworkCIFAR --dataset dvsg --batch-size 64 --step 10 --layers 16 --arch dvsg_new2 --node-type PLIFNode --init-channels 36 --lr 0.005 --epochs 600 --use-bilinear true
 ```
 ## Search
+![](image/search_framework.png)
+![](image/bi-iter.png)
+The algorithm decouples the two-layer optimization of DARTS, uses the timing information of the spiking neural network to update the local architectural parameters using STDP, and updates the overall weight using the gradient descent method. The two are iterated alternately, and each node in the Cell ultimately retains the two operations with the largest architectural parameters. This algorithm can efficiently design convolutional spiking neural network architectures for image classification.
+
 ### Search on CIFAR10
 To search the Cell on CIFAR10 , run the following command:
 
