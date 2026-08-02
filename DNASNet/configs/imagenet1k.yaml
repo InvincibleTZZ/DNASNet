@@ -1,0 +1,20 @@
+dataset: imagenet-1k
+arch: cifar_final
+batch_size: 64
+workers: 8
+prefetch_factor: 4
+epochs: 300
+step: 4
+layers: 16
+opt: adamw
+lr: 0.005
+weight_decay: 0.01
+sched: cosine
+warmup_epochs: 5
+cooldown_epochs: 10
+smoothing: 0.1
+drop_path_prob: 0.2
+use_bilinear: true
+k_bilinear: 0.1
+amp: true
+

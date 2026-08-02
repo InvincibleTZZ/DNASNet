@@ -1,0 +1,26 @@
+name: dnasnet-imagenet
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.7.1+cu118
+      - torchvision==0.22.1+cu118
+      - timm==1.0.22
+      - braincog==0.2.7.19
+      - tonic==1.6.0
+      - spikingjelly==0.0.0.0.14
+      - numpy==1.26.3
+      - Pillow==11.3.0
+      - PyYAML==6.0.2
+      - einops==0.8.0
+      - scipy==1.13.1
+      - h5py==3.12.1
+      - tqdm==4.67.1
+      - tensorboard==2.18.0
+      - tensorboardX==2.6.4
+      - requests==2.32.3
+
